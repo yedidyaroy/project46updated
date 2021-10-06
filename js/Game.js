@@ -18,7 +18,7 @@ class Game{
     play(){
         background(bgImg2); 
         if(keyDown("UP") && pikachu.y >= 150) {
-            pikachu.velocityY = -10;
+            pikachu.velocityY = -8;
           }
 
          pikachu.velocityY = pikachu.velocityY + 0.8;

@@ -11,8 +11,8 @@ function preload(){
   bgImg2=loadImage("images/background2.jpg");
   pikachuImg=loadAnimation("images/1.png","images/2.png","images/3.png","images/4.png");
   cloudImg=loadImage("images/cloud.png");
-  redPBImg=loadImage("images/red pokeball.png");
-  blackPBImg=loadImage("images/black pokeball.png");
+  redPBImg=loadImage("images/redpokeball.png");
+  blackPBImg=loadImage("images/blackpokeball.png");
 }
 
 function setup() {
@@ -21,6 +21,10 @@ function setup() {
   game=new Game();
   game.start();
   //console.log(player.name);
+
+  cloudsGroup = new Group();
+  redPBGroup = new Group();
+  blackPBGroup = new Group();
 }
 
 function draw() {
@@ -35,8 +39,8 @@ function draw() {
     else {
       spawnBlackPokeballs();
     }
+    // drawSprites();
   } 
- // drawSprites();
 }
 
 function spawnClouds() {
@@ -47,8 +51,8 @@ function spawnClouds() {
     cloud.velocityX=-5;
     cloud.scale=0.2;
     cloud.lifetime=displayWidth/5;
+    cloudsGroup.add(cloud);
   }
-  cloudsGroup.add(cloud);
 }
 
 function spawnRedPokeballs() {
@@ -58,8 +62,8 @@ function spawnRedPokeballs() {
     redPB.velocityX=-5;
     redPB.scale=0.2;
     redPB.lifetime=displayWidth/5;
+    redPBGroup.add(redPB);
   }
-  redPBGroup.add(redPB);
 }
 
 function spawnBlackPokeballs() {
@@ -69,6 +73,6 @@ function spawnBlackPokeballs() {
     blackPB.velocityX=-5;
     blackPB.scale=0.4;
     blackPB.lifetime=displayWidth/5;
+    blackPBGroup.add(blackPB);
   }
-  blackPBGroup.add(blackPB);
 }
